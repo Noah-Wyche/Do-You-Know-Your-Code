@@ -1,0 +1,46 @@
+/* Setting the html and body to take up the whole page */
+html body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-size: 16px;
+    background-color: rgb(150, 238, 250);
+}
+
+/* Adjusting header to display both elements side by side on opposite sides of the page */
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    color:lime;
+    background-color: gray;
+}
+
+/* Styling the starting page information before the quiz is started */
+#starting-page {
+    color: lime;
+    background-color: gray;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+/* Adjusting button size */
+button {
+    height: 60px;
+    width: 200px;
+    font-size: 1.3em;
+}
+
+/* Styling the images to be aligned in the center of the page */
+.images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Adjusted the image to take up the size of the lower half of the screen without distorting the imgage */
+ #question-bulbs {
+    width: 100%;
+    max-height: 100vh;
+ }
