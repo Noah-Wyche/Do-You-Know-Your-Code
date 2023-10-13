@@ -1,10 +1,42 @@
 // Ready for fresh Code!!
+// Here I will establish variables so they are organized
+const startButton = document.getElementById("start-button")
+const startingPage = document.getElementById("starting-page")
+const questionBulbs = document.getElementById("question-bulbs")
+const timer = document.getElementById("timer")
+
+let currentQuestionIndex = 0;
+let timeInSeconds = 60;
 
 // Here I will add an event listener for the click of the start button to begin the quiz
+startButton.addEventListener("click", startQuiz)
+// Code for what to do when the button is clicked
+function startQuiz() {
+    // Hide what was on the page before cliclking the button
+    startingPage.style.display = "none";
+    questionBulbs.style.display = "none";
 
-// Here I will add a function to present the first question and start the timer when the quiz begins
+    // Begin the timer
+    startTimer();
 
-// Here I will add a function to present the second question after the first and so on
+    // Display questions
+    showQuestion(currentQuestionIndex);
+
+};
+
+function startTimer() {
+    const timerInterval = setInterval(function() {
+        if (timeInSeconds <= 0) {
+            clearInterval(timerInterval);
+            timeLeft.textContent = "Time's Up!";
+        } else {
+        timeInSeconds--;
+        const minutes = Math.floor(timeInSeconds / 60);
+        const seconds = timeInSeconds % 60;
+        timeLeft.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+        }
+    }, 1000);
+}
 
 // I also need it so that when a question is answered the timer either stays the same or time is removed depending on if the answer is correct or not
 
