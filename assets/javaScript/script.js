@@ -4,6 +4,7 @@ const startButton = document.getElementById("start-button")
 const startingPage = document.getElementById("starting-page")
 const questionBulbs = document.getElementById("question-bulbs")
 const timer = document.getElementById("timer")
+const timeLeft = document.getElementById("time-left")
 
 let currentQuestionIndex = 0;
 let timeInSeconds = 60;
