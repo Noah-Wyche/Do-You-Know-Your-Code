@@ -27,7 +27,7 @@ header {
 /* Adjusting button size */
 button {
     height: 80px;
-    width: 300px;
+    width: 380px;
     font-size: 1.3em;
     margin: 1em;
     padding: 1em;
@@ -59,4 +59,12 @@ button {
 
  h2 {
     font-size: 2em
+ }
+
+ #message, #score-display {
+display: flex;
+justify-content: center;
+margin: 1em;
+font-size: 3em;
+color: grey;
  }

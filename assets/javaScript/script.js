@@ -180,11 +180,11 @@ function endQuiz() {
     }
 }
 
-
-// I need it to display the users score at the end of the quiz and provide a text box to enter the users initials and save them along with their score
-
-// I need to save those scores to local storage and have them accesible for later viewing by clicking a link
-
+ // To display messages
+ function displayMessage(message) {
+    const messageElement = document.getElementById("message");
+    messageElement.textContent = message;
+ }
 // I need it to display "CORRECT" or "INCORRECT" at the bottom of the screen appropriately after each question is answered
 
 // If all the above is done I need to ensure I am not missing any steps and that all the code is written as effeciently as possible
