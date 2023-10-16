@@ -2,9 +2,27 @@
 // Here I will establish variables so they are organized
 const startButton = document.getElementById("start-button")
 const startingPage = document.getElementById("starting-page")
+const quizContainer = document.getElementById("quiz-container")
 const questionBulbs = document.getElementById("question-bulbs")
 const timer = document.getElementById("timer")
 const timeLeft = document.getElementById("time-left")
+const choices = document.getElementById("choices")
+const questionTitle = document.getElementById("question-title")
+
+// Defining the Quiz questions as an array
+const quizQuestions = [
+    {
+        question: "This is a test question",
+        choices: ["Sample", "Answer", "Choices"],
+        correctAnswer: "Answer"
+    },
+    {
+        question: "Sample question two",
+        choices: ["More", "Sample", "Choices"],
+        correctAnswer: "More"
+    },
+    //repeat structure for the rest of my questionsd
+]
 
 let currentQuestionIndex = 0;
 let timeInSeconds = 60;
@@ -15,14 +33,11 @@ startButton.addEventListener("click", startQuiz)
 function startQuiz() {
     // Hide what was on the page before cliclking the button
     startingPage.style.display = "none";
-    questionBulbs.style.display = "none";
-
+    quizContainer.style.display = "block";
     // Begin the timer
     startTimer();
-
     // Display questions
     showQuestion(currentQuestionIndex);
-
 };
 
 function startTimer() {
@@ -38,6 +53,33 @@ function startTimer() {
         }
     }, 1000);
 }
+
+// Function to display a question and its answer choices
+function showQuestion(index) {
+    if (index < quizQuestions.length) {
+        const question = quizQuestions[index];
+        questionTitle.textContent = question.question;
+
+        // Clear existing choices
+        choices.innerHTML = "";
+
+        // Display answer choices
+        question.choices.forEach((choice, i) => {
+            const choiceItem = document.createElement("li");
+            const input = document.createElement("input");
+            input.type = "radio";
+            input.name = "answer";
+            input.value = choice;
+            choiceItem.appendChild(input);
+            choiceItem.appendChild(document.createTextNode(` ${choice}`));
+            choices.appendChild(choiceItem);
+        });
+    } else {
+        // Handle quiz completion (no more questions)
+        quizContainer.innerHTML = "Quiz Completed!";
+    }
+}
+
 
 // I also need it so that when a question is answered the timer either stays the same or time is removed depending on if the answer is correct or not
 
