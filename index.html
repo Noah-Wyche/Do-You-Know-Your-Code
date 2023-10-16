@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width-device-width, intial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DO You Know Your Code?</title>
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 </head>
@@ -27,13 +27,12 @@
         
         <div id="quiz-container" style="display: none;">
             <h2 id="question-title"></h2>
-            <p id="question-text"></p>
-            <ul id="answer-choices">
-                <li class="answer-choice"><input type="radio" name="answer" value="A">Option A</li>
-                <li class="answer-choice"><input type="radio" name="answer" value="B">Option B</li>
-                <li class="answer-choice"><input type="radio" name="answer" value="C">Option C</li>
-            </ul>
-
+            <div id="choices">
+                <button class="answer-choice"><input type="button" name="answer" value="A">Option A</button>
+                <button class="answer-choice"><input type="button" name="answer" value="B">Option B</button>
+                <button class="answer-choice"><input type="button" name="answer" value="C">Option C</button>
+            </div>
+            <div id="score-display"></div>
         </div>
     </main>
     <script src="./assets/javaScript/script.js"></script>

@@ -26,6 +26,8 @@ const quizQuestions = [
 
 let currentQuestionIndex = 0;
 let timeInSeconds = 60;
+let score = 0;
+
 
 // Here I will add an event listener for the click of the start button to begin the quiz
 startButton.addEventListener("click", startQuiz)
@@ -63,16 +65,28 @@ function showQuestion(index) {
         // Clear existing choices
         choices.innerHTML = "";
 
-        // Display answer choices
+        // Display answer choices as buttons
         question.choices.forEach((choice, i) => {
-            const choiceItem = document.createElement("li");
-            const input = document.createElement("input");
-            input.type = "radio";
-            input.name = "answer";
-            input.value = choice;
-            choiceItem.appendChild(input);
-            choiceItem.appendChild(document.createTextNode(` ${choice}`));
-            choices.appendChild(choiceItem);
+            const button = document.createElement("button");
+            button.textContent = choice;
+            button.type = "button"; // Specify the type for non-submit buttons
+            button.addEventListener("click", () => {
+                // Handle the user's choice (e.g., check if it's correct)
+                if (choice === question.correctAnswer) {
+                    // Handle the correct answer
+                    score++;
+                    scoreDisplay.textContent = score;
+                    displayMessage("Correct")
+                } else {
+                    // Handle incorrect answers
+                    timeInSeconds -=3;
+                    timeLeft.textContent = `${timeInSeconds} seconds`;
+                    displayMessage("Incorrect");
+                }
+                // Move to the next question
+                nextQuestion();
+            });
+            choices.appendChild(button);
         });
     } else {
         // Handle quiz completion (no more questions)
@@ -80,6 +94,30 @@ function showQuestion(index) {
     }
 }
 
+// Display the score on the web page (if you have an element for it)
+const scoreDisplay = document.getElementById("score-display");
+scoreDisplay.textContent = `Score: ${score}`;
+
+
+// Function to move to the next question
+function nextQuestion() {
+    currentQuestionIndex++;
+    // Check for more questions
+    if(currentQuestionIndex < quizQuestions.length) {
+        showQuestion(currentQuestionIndex);
+    } else {
+        quizContainer.innerHTML = "Quiz Completed!";
+    }
+}
+
+function displayMessage(message) {
+    // Create a new HTML element to display the message
+    const messageElement = document.createElement("p");
+    messageElement.textContent = message;
+
+    // Append the message element to the "choices" container (or another target element)
+    choices.appendChild(messageElement);
+}
 
 // I also need it so that when a question is answered the timer either stays the same or time is removed depending on if the answer is correct or not
 
