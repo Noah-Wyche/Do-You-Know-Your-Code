@@ -12,56 +12,55 @@ const questionTitle = document.getElementById("question-title")
 // Defining the Quiz questions as an array
 const quizQuestions = [
     { // Question 1
-        question: "This is a test question",
-        choices: ["Sample", "Answer", "Choices"],
-        correctAnswer: "Answer"
+        question: "In CSS, how do you select an HTML element with the class name 'example'?",
+        choices: ["#example", "element.example", ".example"],
+        correctAnswer: ".example"
     },
     { // Question 2
-        question: "Sample question two",
-        choices: ["More", "Sample", "Choices"],
-        correctAnswer: "More"
+        question: "Which CSS property is used to change the text color?",
+        choices: ["font-color", "text-color", "color"],
+        correctAnswer: "color"
     },
     { // Question 3
-        question: "",
-        choices: [",,"],
-        correctAnswer: ""
+        question: "What is the correct way to comment out a single line of code in JavaScript?",
+        choices: ["/* This is a comment */", "// This is a comment", "-- This is a comment"],
+        correctAnswer: "// This is a comment"
     },
     { // Question 4
-        question: "",
-        choices: [",,"],
-        correctAnswer: ""
+        question: "What is the default position property in CSS?",
+        choices: ["fixed", "relative", "static"],
+        correctAnswer: "static"
     },
     { // Question 5
-        question: "",
-        choices: [",,"],
-        correctAnswer: ""
+        question: "Which CSS property is used for changing the size of text",
+        choices: ["font-family", "text-size", "font-size"],
+        correctAnswer: "font-size"
     },
     { // Question 6
-        question: "",
-        choices: [",,"],
-        correctAnswer: ""
+        question: "In CSS, which property is used for adding space outside the borders of an element?",
+        choices: ["margin", "padding", "border-space"],
+        correctAnswer: "margin"
     },
     { // Question 7
-        question: "",
-        choices: [",,"],
-        correctAnswer: ""
+        question: "In JavaScript, which operator is used for strict equality (both value and type)?",
+        choices: ["=", "===", "=="],
+        correctAnswer: "==="
     },
     { // Question 8
-        question: "",
-        choices: [",,"],
-        correctAnswer: ""
+        question: "In CSS, which property is used to control the order of elements in relation to their parent?",
+        choices: ["display", "position", "order"],
+        correctAnswer: "position"
     },
     { //Question 9
-        question: "",
-        choices: [",,"],
-        correctAnswer: ""
+        question: "Which JavaScript method is used to remove the last element from an array and return it?",
+        choices: ["pop()", "remove()", "shift()"],
+        correctAnswer: "shift()"
     },
     { // Question 10
-        question: "",
-        choices: [",,"],
-        correctAnswer: ""
+        question: "Which HTML element is used to create a numbered list?",
+        choices: ["<ul>", "<ol>", "<nl>"],
+        correctAnswer: "<ol>"
     },
-    //repeat structure for the rest of my questionsd
 ]
 
 // Establishing some variables that will change value
