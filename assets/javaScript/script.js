@@ -11,19 +11,60 @@ const questionTitle = document.getElementById("question-title")
 
 // Defining the Quiz questions as an array
 const quizQuestions = [
-    {
+    { // Question 1
         question: "This is a test question",
         choices: ["Sample", "Answer", "Choices"],
         correctAnswer: "Answer"
     },
-    {
+    { // Question 2
         question: "Sample question two",
         choices: ["More", "Sample", "Choices"],
         correctAnswer: "More"
     },
+    { // Question 3
+        question: "",
+        choices: [",,"],
+        correctAnswer: ""
+    },
+    { // Question 4
+        question: "",
+        choices: [",,"],
+        correctAnswer: ""
+    },
+    { // Question 5
+        question: "",
+        choices: [",,"],
+        correctAnswer: ""
+    },
+    { // Question 6
+        question: "",
+        choices: [",,"],
+        correctAnswer: ""
+    },
+    { // Question 7
+        question: "",
+        choices: [",,"],
+        correctAnswer: ""
+    },
+    { // Question 8
+        question: "",
+        choices: [",,"],
+        correctAnswer: ""
+    },
+    { //Question 9
+        question: "",
+        choices: [",,"],
+        correctAnswer: ""
+    },
+    { // Question 10
+        question: "",
+        choices: [",,"],
+        correctAnswer: ""
+    },
     //repeat structure for the rest of my questionsd
 ]
 
+// Establishing some variables that will change value
 let currentQuestionIndex = 0;
 let timeInSeconds = 60;
 let score = 0;
@@ -42,12 +83,14 @@ function startQuiz() {
     showQuestion(currentQuestionIndex);
 };
 
+// A function to start the timer
 function startTimer() {
     const timerInterval = setInterval(function() {
+        // What to display if the timer hits 0 or fewer seconds
         if (timeInSeconds <= 0) {
             clearInterval(timerInterval);
             timeLeft.textContent = "Time's Up!";
-        } else {
+        } else { // What to do if there is still time left
         timeInSeconds--;
         const minutes = Math.floor(timeInSeconds / 60);
         const seconds = timeInSeconds % 60;
@@ -88,9 +131,10 @@ function showQuestion(index) {
             });
             choices.appendChild(button);
         });
+
     } else {
         // Handle quiz completion (no more questions)
-        quizContainer.innerHTML = "Quiz Completed!";
+        endQuiz();
     }
 }
 
@@ -106,7 +150,7 @@ function nextQuestion() {
     if(currentQuestionIndex < quizQuestions.length) {
         showQuestion(currentQuestionIndex);
     } else {
-        quizContainer.innerHTML = "Quiz Completed!";
+        endQuiz();
     }
 }
 
@@ -119,7 +163,24 @@ function displayMessage(message) {
     choices.appendChild(messageElement);
 }
 
-// I also need it so that when a question is answered the timer either stays the same or time is removed depending on if the answer is correct or not
+function endQuiz() {
+    if (currentQuestionIndex >= quizQuestions.length) {
+        const userName = prompt("Congratulations! You completed the quiz. Enter your name to save your score:");
+        if (userName) {
+            const userScore = { name: userName, score: score };
+            // Retrieve existing scores from local storage or initialize an empty array if none exist
+            const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+            highScores.push(userScore);
+            // Sort scores in descending order
+            highScores.sort((a, b) => b.score - a.score);
+            // Save the updated scores back to local storage
+            localStorage.setItem("highScores", JSON.stringify(highScores));
+        }
+        // Redirect to the high scores page
+        window.location.href = "./assets/highScores/high-scores.html";
+    }
+}
+
 
 // I need it to display the users score at the end of the quiz and provide a text box to enter the users initials and save them along with their score
 
