@@ -1,4 +1,3 @@
-// Ready for fresh Code!!
 // Here I will establish variables so they are organized
 const startButton = document.getElementById("start-button")
 const startingPage = document.getElementById("starting-page")
@@ -67,7 +66,6 @@ const quizQuestions = [
 let currentQuestionIndex = 0;
 let timeInSeconds = 60;
 let score = 0;
-
 
 // Here I will add an event listener for the click of the start button to begin the quiz
 startButton.addEventListener("click", startQuiz)
@@ -188,6 +186,3 @@ function endQuiz() {
     const messageElement = document.getElementById("message");
     messageElement.textContent = message;
  }
-// I need it to display "CORRECT" or "INCORRECT" at the bottom of the screen appropriately after each question is answered
-
-// If all the above is done I need to ensure I am not missing any steps and that all the code is written as effeciently as possible
