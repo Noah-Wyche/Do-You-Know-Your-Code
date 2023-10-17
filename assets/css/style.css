@@ -31,6 +31,8 @@ button {
     font-size: 1.3em;
     margin: 1em;
     padding: 1em;
+    background-color: lime;
+    border-radius: 10px;
 }
 
 /* Styling the images to be aligned in the center of the page */
