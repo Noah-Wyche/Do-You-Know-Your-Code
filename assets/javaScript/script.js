@@ -89,6 +89,8 @@ function startTimer() {
         if (timeInSeconds <= 0) {
             clearInterval(timerInterval);
             timeLeft.textContent = "Time's Up!";
+            endQuiz();
+            console.log(endQuiz)
         } else { // What to do if there is still time left
         timeInSeconds--;
         const minutes = Math.floor(timeInSeconds / 60);
@@ -163,7 +165,8 @@ function displayMessage(message) {
 }
 
 function endQuiz() {
-    if (currentQuestionIndex >= quizQuestions.length) {
+    console.log("endQuiz function is running");
+    if (timeInSeconds <= 0 || currentQuestionIndex >= quizQuestions.length) {
         const userName = prompt("Congratulations! You completed the quiz. Enter your name to save your score:");
         if (userName) {
             const userScore = { name: userName, score: score };
